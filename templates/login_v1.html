@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Login</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <form class="form-signin" action = '' method = post>
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input name = "username" type="text" class="input-block-level" placeholder="Email address" data-form-un="1481447575171.6611">
+        <input name = "password" type="password" class="input-block-level" placeholder="Password" data-form-pw="1481447575171.6611">
+        <label class="checkbox">
+            <input name = "remember_me" type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-primary" type="submit" data-form-sbm="1481447575171.6611">Sign in</button>
+        </form>
+
+    </div>
+{% endblock %}

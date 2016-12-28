@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Home Page</title>
+{% endblock %}
+
+{% block body %}
+    <div class = "container">
+        <div class="jumbotron">
+            <!--the margin parameters are used to change the location of text-->
+            <h1 style="margin-left: -50px; margin-right: -50px">Greatness starts from accumulation</h1>
+            <p style="margin-left: -50px; margin-right: -50px">I practice web programming and begin to record the exercises I did on
+                these web pages. I will refine these pages in the following days and
+                make sure they are becoming better and better.</p>
+            <div class = "btn-group">
+                <input type = "button" class = "btn btn-primary btn-large" value = "More Info">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Python</h1>
+                <p>Notes when I learn python</p>
+            </div>
+            <div class="col-md-4">
+                <h1>Django</h1>
+                <p>Comments about Django</p>
+            </div>
+            <div class="col-md-4">
+                <h1>HTML</h1>
+                <p>This section is about HTML</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Questions</h1>
+                <p>General questions that I met</p>
+            </div>
+            <div class="col-md-4">
+                <h1>Thoughts</h1>
+                <p>Thoughts about what I did</p>
+            </div>
+            <div class="col-md-4">
+                <h1>News</h1>
+                <p>News in life</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <H1>Hobbies</H1>
+                <p>Hobbies</p>
+            </div>
+            <div class="col-md-4">
+                <H1>About CAT</H1>
+                <p>Caterpillar</p>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary btn-large">More>>></button>
+                <p>Caterpillar</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

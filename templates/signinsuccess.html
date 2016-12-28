@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Sign in successfully</title>
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div style="padding-top: 10%; padding-left: 20%">
+            <p><strong>Signed in, you will be redirected to
+                <a href="/blog/index/">Home</a> in &nbsp<span id = "time">5</span> seconds.<strong></p>
+        </div>
+    </div>
+    <script>
+        var t = 5;
+        setInterval("redirect()",1000);
+        function redirect(){
+            if(t == 0){
+                window.location.href = "/blog/index/"
+            }
+            else{
+                t -= 1;
+                $("#time").text(t)
+            }
+    }
+    </script>
+{% endblock %}
+
+{% block pagination %}{% endblock %}
+
+{% block footer %}{% endblock %}
