@@ -23,6 +23,7 @@
           <ul class="nav navbar-nav">
             <li><a href="/blog/index/">Home</a></li>
             <li  class="active"><a href="/blog/notes/">Notes</a></li>
+            <li><a href="/blog/chat/">Chat</a></li>
           </ul>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
@@ -64,16 +65,22 @@
             </div>
             <div class="col-md-10">
                 <section id = "Python">
+{#                id用于页面跳转#}
                     {% for note in notes_Python %}
                         <div>
                         <div class = "row">
                             <div class = "col-md-10">
-                                <h3>{{ note.title }}</h3>
+                                {% for k,v in python_portrait.items %}
+                                    {% if note.username_id == k %}
+                                <span><img style = "width: 30px; height: 35px" src= "/static/{{ v }}" /></span>
+                                    {% endif %}
+                                {% endfor %}
+                                <span style = "display: inline-block"><h3>{{ note.title }}</h3></span>
                             </div>
                         </div>
                         <div class = "row">
                             <div class="col-md-10">
-                                <p>{{ note.content }}</p>
+                                <p>{{ note.content|linebreaksbr }}</p>
                             </div>
                         </div>
                         <!--this part is the favor_count-->
@@ -114,12 +121,17 @@
                         <div>
                         <div class = "row">
                             <div class = "col-md-10">
-                                <h3>{{ note.title }}</h3>
+                                {% for k,v in django_portrait.items %}
+                                    {% if note.username_id == k %}
+                                <span><img style = "width: 30px;height: 35px" src= "/static/{{ v }}" /></span>
+                                    {% endif %}
+                                {% endfor %}
+                                <span style = "display: inline-block"><h3>{{ note.title }}</h3></span>
                             </div>
                         </div>
                         <div class = "row">
                             <div class="col-md-10">
-                                <p>{{ note.content }}</p>
+                                <p>{{ note.content|linebreaksbr  }}</p>
                             </div>
                         </div>
                         <!--this part is the favor_count-->
@@ -160,12 +172,17 @@
                         <div>
                         <div class = "row">
                             <div class = "col-md-10">
-                                <h3>{{ note.title }}</h3>
+                                {% for k,v in html_portrait.items %}
+                                    {% if note.username_id == k %}
+                                <span><img style = "width: 30px;height: 35px" src= "/static/{{ v }}" /></span>
+                                    {% endif %}
+                                {% endfor %}
+                                <span style = "display: inline-block"><h3>{{ note.title }}</h3></span>
                             </div>
                         </div>
                         <div class = "row">
                             <div class="col-md-10">
-                                <p>{{ note.content }}</p>
+                                <p>{{ note.content|linebreaksbr  }}</p>
                             </div>
                         </div>
                         <!--this part is the favor_count-->
@@ -206,12 +223,17 @@
                         <div>
                         <div class = "row">
                             <div class = "col-md-10">
-                                <h3>{{ note.title }}</h3>
+                                {% for k,v in javascript_portrait.items %}
+                                    {% if note.username_id == k %}
+                                <span><img style = "width: 30px;height: 35px" src= "/static/{{ v }}" /></span>
+                                    {% endif %}
+                                {% endfor %}
+                                <span style = "display: inline-block"><h3>{{ note.title }}</h3></span>
                             </div>
                         </div>
                         <div class = "row">
                             <div class="col-md-10">
-                                <p>{{ note.content }}</p>
+                                <p>{{ note.content|linebreaksbr }}</p>
                             </div>
                         </div>
                         <!--this part is the favor_count-->
@@ -252,12 +274,17 @@
                         <div>
                         <div class = "row">
                             <div class = "col-md-10">
-                                <h3>{{ note.title }}</h3>
+                                {% for k,v in jquery_portrait.items %}
+                                    {% if note.username_id == k %}
+                                <span><img style = "width: 30px;height: 35px" src= "/static/{{ v }}" /></span>
+                                    {% endif %}
+                                {% endfor %}
+                                <span style = "display: inline-block"><h3>{{ note.title }}</h3></span>
                             </div>
                         </div>
                         <div class = "row">
                             <div class="col-md-10">
-                                <p>{{ note.content }}</p>
+                                <p>{{ note.content|linebreaksbr }}</p>
                             </div>
                         </div>
                         <!--this part is the favor_count-->

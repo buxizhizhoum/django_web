@@ -1,7 +1,9 @@
+# coding: utf-8
+
 from __future__ import unicode_literals
 
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class UserType(models.Model):
@@ -11,9 +13,11 @@ class UserType(models.Model):
         return self.user_type
 
 class User(models.Model):
-    username = models.CharField(max_length=100)
+    username = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=100)
     email = models.EmailField(blank=True)
+    portrait = models.ImageField(upload_to="portrait/", blank=True)
+    friends = models.ManyToManyField("User",blank=True)
     user_type = models.ForeignKey("UserType")
 
     def __unicode__(self):
@@ -48,6 +52,7 @@ class ChatContent(models.Model):
 
     content = models.CharField(max_length=300)
     user = models.ForeignKey("User")
+    create_date = models.DateTimeField(auto_now_add=True,blank=True,null=True)
 
     def __unicode__(self):
         return self.content

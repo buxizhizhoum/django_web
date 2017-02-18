@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-
+# coding: utf-8
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
 ]
-
+# two middleware related to cache is add later
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,7 +50,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
+CACHE_MIDDLEWARE_SECONDS = 60*5
 
 ROOT_URLCONF = 'Django_web.urls'
 
@@ -121,3 +125,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_URL='/blog/login/'
+STATICFILES_DIR = {
+    os.path.join(BASE_DIR,"/static/"),
+    os.path.join(BASE_DIR,"/portrait/"),
+}
+MEDIA_ROOT = os.path.join(BASE_DIR,"blog","static")  # upload to where
+# print MEDIA_ROOT
+MEDIA_URL = os.path.join(MEDIA_ROOT,"portrait/").replace("\\","/")
+# print MEDIA_URL
+CACHE_BACKEND = 'dummy:///'
